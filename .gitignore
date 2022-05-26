@@ -7,4 +7,5 @@ Makefile.in
 .vscode
 build/
 bin/
+lib/
 third_parties/
