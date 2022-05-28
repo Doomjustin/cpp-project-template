@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.21 FATAL_ERROR)
 
+# change to your project name
 project(cpp-template
 	VERSION 1.0
 	LANGUAGES CXX)
@@ -15,6 +16,10 @@ endif()
 
 # 标准库thread需要手动连接Threads::Threads
 # find_package(Threads REQUIRED)
+# not recommend
+# link_libraries(Threads::Threads)
+# better way
+# target_link_libraries(<Target name> PRIVATE/PUBLIC Threads::Threads)
 
 # 项目中可以直接 #include "my-project/xxx.h"
 include_directories(${PROJECT_SOURCE_DIR}/include)
