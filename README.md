@@ -2,8 +2,14 @@
 基本的项目结构组织和基本的CMakeLists的编写组织
 
 ## Third Parties
-包括了两个第三方库fmt和spdlog<br/>
-boost的使用比较麻烦，这里推荐下面的仓库，按他说的做即可
+包括了3个第三方库fmt，spdlog，boost<br/>
+- 在我的电脑上，第一次激活cmake配置时总会出Error，再配置一次之后就能成功了
+
+> boost实在是太大了，完全下载配置完成要20min以上。。。。<br/>
+> 第一次编译文件时，这里引用的库都需要编译一次，之后就不用了<br/>
+> 所以不需要的小伙伴请删除boost的配置
+
+我这里都是比较粗浅的用法，boost的配置也参考下面的仓库，按他说的做即可
 > git@github.com:Orphis/boost-cmake.git
 
 然后，我通常会再添加一个下载目录，类似下面这样

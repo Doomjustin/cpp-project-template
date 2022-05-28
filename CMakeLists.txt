@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.21 FATAL_ERROR)
 
 # change to your project name
-project(cpp-template
+project(cpp-project-template
 	VERSION 1.0
 	LANGUAGES CXX)
 
@@ -32,10 +32,11 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 add_subdirectory(${PROJECT_SOURCE_DIR}/app)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src)
 add_subdirectory(${PROJECT_SOURCE_DIR}/test)
-# 如果你已经下载了boost-cmake
-add_subdirectory(${PROJECT_SOURCE_DIR}/boost-cmake)
+# 如果你使用boost-cmake
+# add_subdirectory(${PROJECT_SOURCE_DIR}/boost-cmake)
 
 # 按需添加第三方库
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 include(AddFmt)
 include(AddSpdlog)
+include(AddBoost)
