@@ -53,3 +53,12 @@ strftime-like format: 03:15:30
 [2022-05-25 19:29:41.528] [info] left aligned
 [2022-05-25 19:29:41.528] [debug] This message should be displayed..
 ```
+
+## git 创建远程分支
+```bash
+git switch <branch>
+git push origin <branch>
+# 将branch和远程的branch相关联，以后就可以直接用git push来推送branch的更新到远程了
+git push --set-upstream origin <branch>
+# Branch '<branch>' set up to track remote branch 'dev' from 'origin'.
+```
