@@ -2,7 +2,7 @@
 基本的项目结构组织和基本的CMakeLists的编写组织
 
 ## Third Parties
-包括了3个第三方库fmt，spdlog，boost<br/>
+包括了几个自用的第三方库fmt，spdlog，boost, Catch2<br/>
 - 在我的电脑上，第一次激活cmake配置时总会出Error，再配置一次之后就能成功了
 
 > boost实在是太大了，完全下载配置完成要20min以上。。。。<br/>
