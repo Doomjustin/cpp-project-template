@@ -8,4 +8,4 @@ Makefile.in
 build/
 bin/
 lib/
-third_parties/
+third-party/
