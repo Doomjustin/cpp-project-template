@@ -40,7 +40,6 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 include(AddFmt)
 include(AddSpdlog)
 include(AddBoost)
-include(AddCatch2)
 
 # AddSubmodule的用法
 # include(AddGitSubmodule)
