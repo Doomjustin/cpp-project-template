@@ -21,28 +21,19 @@ endif()
 # better way
 # target_link_libraries(<Target name> PRIVATE/PUBLIC Threads::Threads)
 
-# 项目中可以直接 #include "my-project/xxx.h"
-include_directories(${PROJECT_SOURCE_DIR}/include)
 # 二进制可执行文件输出目录
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 # 库文件（静态库，动态库）输出目录
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+
+# 按需添加第三方库
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+include(AddFmt)
+include(AddSpdlog)
+# include(AddBoost)
 
 # 按需
 add_subdirectory(${PROJECT_SOURCE_DIR}/app)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src)
 add_subdirectory(${PROJECT_SOURCE_DIR}/test)
 add_subdirectory(${PROJECT_SOURCE_DIR}/examples)
-
-# 如果你使用boost-cmake
-# add_subdirectory(${PROJECT_SOURCE_DIR}/boost-cmake)
-
-# 按需添加第三方库
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-include(AddFmt)
-include(AddSpdlog)
-include(AddBoost)
-
-# AddSubmodule的用法
-# include(AddGitSubmodule)
-# add_git_submodule(submodule_dir)
