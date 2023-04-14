@@ -14,13 +14,6 @@ if(NOT CMAKE_BUILD_TYPE)
     # or Release
 endif()
 
-# 标准库thread需要手动连接Threads::Threads
-# find_package(Threads REQUIRED)
-# not recommend
-# link_libraries(Threads::Threads)
-# better way
-# target_link_libraries(<Target name> PRIVATE/PUBLIC Threads::Threads)
-
 # 二进制可执行文件输出目录
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 # 库文件（静态库，动态库）输出目录
@@ -35,5 +28,8 @@ include(AddSpdlog)
 # 按需
 add_subdirectory(${PROJECT_SOURCE_DIR}/app)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src)
-add_subdirectory(${PROJECT_SOURCE_DIR}/test)
 add_subdirectory(${PROJECT_SOURCE_DIR}/examples)
+
+if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+    add_subdirectory(${PROJECT_SOURCE_DIR}/test)
+endif()
