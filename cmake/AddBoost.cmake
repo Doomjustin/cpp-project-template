@@ -1,10 +1,5 @@
 include(FetchContent)
 
-# FetchContent_MakeAvailable was not added until CMake 3.14
-if(${CMAKE_VERSION} VERSION_LESS 3.14)
-    include(addFetchContentMakeAvailable.cmake)
-endif()
-
 FetchContent_Declare(
   boost
   GIT_REPOSITORY    https://github.com/boostorg/boost.git # 指定git仓库地址

@@ -14,11 +14,6 @@ if(NOT CMAKE_BUILD_TYPE)
     # or Release
 endif()
 
-# 二进制可执行文件输出目录
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-# 库文件（静态库，动态库）输出目录
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
-
 # 按需添加第三方库
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 include(AddFmt)
@@ -32,4 +27,9 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/examples)
 
 if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
     add_subdirectory(${PROJECT_SOURCE_DIR}/test)
+
+    # 二进制可执行文件输出目录
+    set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})
+    # 库文件（静态库，动态库）输出目录
+    set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR})
 endif()

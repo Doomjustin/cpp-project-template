@@ -37,7 +37,13 @@ Makefile
 Makefile.in
 .vscode/
 .cache/
+.vs/
+.idea/
+
 build/
+cmake-build-debug/
+debug/
+
 bin/
 lib/
 third-party/
