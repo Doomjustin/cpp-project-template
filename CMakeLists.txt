@@ -14,22 +14,17 @@ if(NOT CMAKE_BUILD_TYPE)
     # or Release
 endif()
 
-# 按需添加第三方库
+# add third parties
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 include(AddFmt)
 include(AddSpdlog)
 # include(AddBoost)
 
-# 按需
+if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+    add_subdirectory(${PROJECT_SOURCE_DIR}/test)
+endif()
+
 add_subdirectory(${PROJECT_SOURCE_DIR}/app)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src)
 add_subdirectory(${PROJECT_SOURCE_DIR}/examples)
 
-if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
-    add_subdirectory(${PROJECT_SOURCE_DIR}/test)
-
-    # 二进制可执行文件输出目录
-    set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})
-    # 库文件（静态库，动态库）输出目录
-    set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR})
-endif()
