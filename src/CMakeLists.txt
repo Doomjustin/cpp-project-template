@@ -1,7 +1,7 @@
 # configure_file(Version.h.in ${PROJECT_SOURCE_DIR}/include/template/Version.h)
 
 # 这是个demo
-add_library(template)
+add_library(template INTERFACE)
 
 # 提供给用户的include目录
 target_include_directories(template INTERFACE
@@ -9,27 +9,26 @@ target_include_directories(template INTERFACE
     $<INSTALL_INTERFACE:include/> # 允许使用相对路径，这里是相对于安装路径的相对路径
 )
 # 项目里私有的内部使用的include目录
-target_include_directories(template PRIVATE ${PROJECT_SOURCE_DIR}/include/ftd)
+#target_include_directories(template PRIVATE ${PROJECT_SOURCE_DIR}/include/ftd)
 # 开启编译器features和options
-target_link_libraries(template PUBLIC cpp-compiler-flags)
+#target_link_libraries(template PUBLIC cpp-compiler-flags)
 # 设置属性
-set_target_properties(template PROPERTIES
-        CXX_STANDARD 20
-        CXX_STANDARD_REQUIRED YES
-        CXX_EXTENSIONS OFF # 仅对实际编译的target有效，禁用compiler的拓展，使用pure C++ std
-        INTERPROCEDURAL_OPTIMIZATION_DEBUG FALSE
-        INTERPROCEDURAL_OPTIMIZATION_RELWITHDEBINFO FALSE
-        INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE
-        INTERPROCEDURAL_OPTIMIZATION_MINSIZEREL TRUE
-        # POSITION_INDEPENDENT_CODE ON  # 对于shared target，默认ON
-)
+#set_target_properties(template PROPERTIES
+#        CXX_STANDARD 20
+#        CXX_STANDARD_REQUIRED YES
+#        CXX_EXTENSIONS OFF # 仅对实际编译的target有效，禁用compiler的拓展，使用pure C++ std
+#        INTERPROCEDURAL_OPTIMIZATION_DEBUG FALSE
+#        INTERPROCEDURAL_OPTIMIZATION_RELWITHDEBINFO FALSE
+#        INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE
+#        INTERPROCEDURAL_OPTIMIZATION_MINSIZEREL TRUE
+#)
 # 添加第三方库
-target_link_libraries(template PUBLIC
-    fmt::fmt
-    spdlog::spdlog
-    nlohmann_json::nlohmann_json
-)
+#target_link_libraries(template PUBLIC
+#    fmt::fmt
+#    spdlog::spdlog
+#    nlohmann_json::nlohmann_json
+#)
 # 如果是Debug构建，则添加对应的定义
-target_compile_definitions(template PUBLIC
-    $<$<CONFIG:Debug>:TEMPLATE_DEBUG> # 当有类似于DEBUG宏的东西时，很有用
-)
+#target_compile_definitions(template PUBLIC
+#    $<$<CONFIG:Debug>:TEMPLATE_DEBUG> # 当有类似于DEBUG宏的东西时，很有用
+#)
