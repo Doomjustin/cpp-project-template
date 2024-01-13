@@ -14,23 +14,19 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 include(Submodule)
 include(CppStandard)
 
+# 更新所有的第三方库: git submodule update
+update_submodule()
+
 # 只在没有添加到submodule时才会执行git submodule add命令
-add_submodule(fmt git@github.com:fmtlib/fmt.git)
-add_submodule(spdlog git@github.com:gabime/spdlog.git)
-add_submodule(nlohmann_json git@github.com:nlohmann/json.git)
+add_subdirectory(extern/fmt)
+add_subdirectory(extern/spdlog)
+add_subdirectory(extern/nlohmann_json)
 
 # 当且仅当这是主项目时，构建测试
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-	add_submodule(Catch2 git@github.com:catchorg/Catch2.git)
-
-	# 开启CMake的测试框架
-	# include(CTest)
-	# enable_testing()
+	add_subdirectory(extern/Catch2)
     add_subdirectory(test)
 endif()
-
-# 更新所有的第三方库: git submodule update
-update_submodule()
 
 add_subdirectory(examples)
 add_subdirectory(src)
