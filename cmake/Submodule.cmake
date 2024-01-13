@@ -27,7 +27,7 @@ function(remove_submodule NAME)
 endfunction()
 
 function(add_submodule NAME REP_URL)
-    if (NOT EXISTS "${${PROJECT_NAME}_SOURCE_DIR}/extern/${NAME}")
+    if (NOT EXISTS "${${PROJECT_NAME}_SOURCE_DIR}/extern/${NAME}/.git")
         message(STATUS "Executing: git submodule add ${REP_URL} extern/${NAME}")
         execute_process(
             COMMAND ${GIT_EXECUTABLE} submodule add ${REP_URL} extern/${NAME}
