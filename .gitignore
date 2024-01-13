@@ -33,17 +33,22 @@
 *.out
 *.app
 
+# make
 Makefile
 Makefile.in
+
+# IDE
 .vscode/
 .cache/
 .vs/
 .idea/
 
+# build
 build/
 cmake-build-debug/
 debug/
 
+# customer
 bin/
 lib/
 third-party/

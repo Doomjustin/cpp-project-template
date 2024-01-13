@@ -1,30 +1,16 @@
-cmake_minimum_required(VERSION 3.21 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.21)
 
-# change to your project name
 project(cpp-project-template
 	VERSION 1.0
-	LANGUAGES CXX)
+	LANGUAGES C CXX
+)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "Debug")
-    # or Release
-endif()
-
-# add third parties
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-include(AddFmt)
-include(AddSpdlog)
-# include(AddBoost)
 
-if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+
+if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     add_subdirectory(${PROJECT_SOURCE_DIR}/test)
 endif()
 
-add_subdirectory(${PROJECT_SOURCE_DIR}/app)
-add_subdirectory(${PROJECT_SOURCE_DIR}/src)
 add_subdirectory(${PROJECT_SOURCE_DIR}/examples)
-
+add_subdirectory(${PROJECT_SOURCE_DIR}/src)
