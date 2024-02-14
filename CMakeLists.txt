@@ -11,11 +11,7 @@ if (NOT CMAKE_BUILD_TYPE)
 endif ()
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-include(Submodule)
 include(CppStandard)
-
-# 更新所有的第三方库: git submodule update
-update_submodule()
 
 # 当且仅当这是主项目时，构建测试
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
