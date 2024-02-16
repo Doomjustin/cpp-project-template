@@ -51,4 +51,4 @@ debug/
 # customer
 bin/
 lib/
-third-party/
+**/StaticInfo.h
